@@ -43,7 +43,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CardBack")
 		StaticMeshComponent* CardBackPlane;
 	
-	//The location the card was at before being picked up
+	//The location the card was at before being pulled into the hand
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
 		FTransform TableLocation;
 };
