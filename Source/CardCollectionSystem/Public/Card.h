@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Card.generated.h"
 
-class StaticMeshComponent;
+class UStaticMeshComponent;
 
 UCLASS()
 class CARDCOLLECTIONSYSTEM_API ACard : public AActor
@@ -17,7 +17,7 @@ public:
 	// Sets default values for this actor's properties
 	ACard();
 	ACard(FString suit, FString rank);
-	ACard(FString suit, FString rank, UMaterial* faceMat, UMaterial* backMat, StaticMeshComponent* facePlane, StaticMeshComponent* backPlane);
+	ACard(FString suit, FString rank, UMaterial* faceMat, UMaterial* backMat, UStaticMeshComponent* facePlane, UStaticMeshComponent* backPlane);
 
 protected:
 	// Called when the game starts or when spawned
@@ -27,6 +27,17 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UMaterial* GetFaceMat() { return FaceMat; }
+	void SetFaceMat(UMaterial* newMat) { FaceMat = newMat; }
+
+	UMaterial* GetBackMat() { return BackMat; }
+	void SetbackPlane(UMaterial* newMat) { BackMat = newMat; }
+
+	
+	//The location the card was at before being pulled into the hand
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
+		FTransform TableLocation;
+
 	//The Suits and the Ranks
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
 		FString Suit;
@@ -35,15 +46,11 @@ public:
 
 	//Cards need a material to be put onto Planes, which is why there are two of each for the front and the back
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CardFace")
-		UMaterial* CardFace;
+		UMaterial* FaceMat;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CardFace")
-		class StaticMeshComponent* CardFacePlane;
+		class UStaticMeshComponent* FacePlane;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CardBack")
-		UMaterial* CardBack;
+		UMaterial* BackMat;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CardBack")
-		StaticMeshComponent* CardBackPlane;
-	
-	//The location the card was at before being pulled into the hand
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
-		FTransform TableLocation;
+		UStaticMeshComponent* BackPlane;
 };

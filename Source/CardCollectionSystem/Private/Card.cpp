@@ -21,20 +21,15 @@ ACard::ACard(FString suit, FString rank)
 	Rank = rank;
 }
 
-ACard::ACard(FString suit, FString rank, UMaterial* faceMat, UMaterial* backMat, StaticMeshComponent* facePlane, StaticMeshComponent* backPlane)
+ACard::ACard(FString suit, FString rank, UMaterial* faceMat, UMaterial* backMat, UStaticMeshComponent* facePlane, UStaticMeshComponent* backPlane)
 {
 	Suit = suit;
 	Rank = rank;
 	
-}
-
-ACard::ACard(FString suit, FString rank)
-{
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
-	Suit = suit;
-	Rank = rank;
+	FaceMat = faceMat;
+	BackMat = backMat;
+	FacePlane = facePlane;
+	BackPlane = backPlane;
 }
 
 // Called when the game starts or when spawned
