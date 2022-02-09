@@ -31,7 +31,7 @@ public:
 	void SetFaceMat(UMaterial* newMat) { FaceMat = newMat; }
 
 	UMaterial* GetBackMat() { return BackMat; }
-	void SetbackPlane(UMaterial* newMat) { BackMat = newMat; }
+	void SetbackMat(UMaterial* newMat) { BackMat = newMat; }
 
 	
 	//The location the card was at before being pulled into the hand
