@@ -1,4 +1,5 @@
 # CardCollectionSystem
+This was made for the Complex Systems assessment. In this, you have a few cards laid out on a plane. You can pick up cards by stacking them, and put them back by clicking on them in your hand. If you have multiple cards in your hand, you can click on a button on the side that says "Shuffle" to shuffle the cards in your hand.
 
 ### How to Install:
 + Click on "Card Collection System with Demo" which appears underneath "Releases"
